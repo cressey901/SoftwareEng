@@ -15,8 +15,7 @@ public class StocksConnect {
 		
 		Socket s = new Socket("192.168.0.109", 5000);
 		BufferedReader input = new BufferedReader(new InputStreamReader(s.getInputStream()));
-		String answer = input.readLine();
-		JOptionPane.showMessageDialog(null, answer);
+		
 		System.exit(0);
 		
 
