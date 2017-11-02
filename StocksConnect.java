@@ -14,7 +14,7 @@ public class StocksConnect {
 		// TODO Auto-generated method stub
 		
 		Socket s = new Socket("192.168.0.109", 5000);
-		BufferedReader input = new BufferedReader(new InputStreamReader(s.getInputStream()));
+		BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
 		
 		System.exit(0);
 		
