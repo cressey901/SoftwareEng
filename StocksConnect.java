@@ -7,12 +7,7 @@ import java.io.InputStreamReader;
 import java.net.Socket;
 import javax.swing.JOptionPane;
 
-import java.io.BufferedWriter;
-import java.io.OutputStreamWriter;
-import java.net.InetAddress;
-import java.net.InetSocketAddress;
-import java.net.SocketAddress;
-import java.net.SocketTimeoutException;
+
 
 
 public class StocksConnect {
