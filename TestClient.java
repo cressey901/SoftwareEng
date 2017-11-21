@@ -47,13 +47,18 @@ public class TestClient
     public void StartThreads()
     {
         Thread t1 = new Thread(myRead);
+		Thread t2 = new Thread(myTest);
+		
         t1.start();
+		t2.Start();
     }
 	
 
     public static void main(String [] args)
     {
         TestClient myTest = new TestClient();
+		ClientRead myRead = new ClientRead();
+
         myTest.StartThreads();
         while(true)
         {
