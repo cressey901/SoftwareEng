@@ -9,7 +9,7 @@ public class TestClient
     String outString;
 
     ClientRead myRead;
-    //ClientWrite myWrite;
+    ClientWrite myWrite;
 
 
     public TestClient()
@@ -47,10 +47,11 @@ public class TestClient
     public void StartThreads()
     {
         Thread t1 = new Thread(myRead);
-		Thread t2 = new Thread(myTest);
+		Thread t2 = new Thread(myWrite);
 		
         t1.start();
 		t2.Start();
+		
     }
 	
 

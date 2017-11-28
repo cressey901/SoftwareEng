@@ -5,15 +5,17 @@ public class ClientRead implements Runnable
 {
 
     Socket clientSocket = null;
-    BufferedReader in = null;
+    PrintWriter out = null;
     String inString;
+	String userInput;
+
 
     public ClientRead(Socket aSocket)
     {
         clientSocket = aSocket;
         try
         {
-            in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
+           PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true);
         }
         catch(IOException e)
         {
@@ -21,14 +23,15 @@ public class ClientRead implements Runnable
         }
     }
 
-    public void readFromServer()
+    public void writeToServer()
     {
         try
         {
-            while(!(inString = in.readLine()).equals(""))
+            while(!(userInput = in.readLine()) != null) 
             {
                 //Do something
-                System.out.println(inString);
+                System.out.println(userInput);
+				System.out.println("echo: " + in.readLine());
             }
         }
         catch(IOException e)
@@ -44,8 +47,11 @@ public class ClientRead implements Runnable
         System.out.println("DEBUG 1");
         while(true)
         {
-            readFromServer();        
+            writeToServer();        
         }
     }
 
 }
+
+
+

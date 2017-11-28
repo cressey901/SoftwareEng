@@ -8,12 +8,12 @@ public class ClientWrite implements Runnable
     BufferedReader in = null;
     String inString;
 
-    public ClientRead(Socket aSocket)
+    public ClientWrite(Socket aSocket)
     {
         clientSocket = aSocket;
         try
         {
-            in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
+            in = new BufferedReader(new OutputStreamWriter(clientSocket.getInputStream()));
         }
         catch(IOException e)
         {
@@ -21,15 +21,14 @@ public class ClientWrite implements Runnable
         }
     }
 
-    public void readFromServer()
+    public void writeToServer()
     {
         try
         {
-            while(!(inString = in.readLine()).equals(""))
-            {
-                //Do something
-                System.out.println(inString);
-            }
+           while ((userInput= in.readLine()) != null) {
+			   out.println(userInput);
+			   System.out.println("echo " + in.readLine());
+		   }
         }
         catch(IOException e)
         {
